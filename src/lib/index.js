@@ -1,2 +1,1 @@
-import Image from './Image.svelte';
-export { Image };
+export { default as Image } from './Image.svelte';
