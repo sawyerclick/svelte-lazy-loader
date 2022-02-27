@@ -4,6 +4,10 @@
 
 - Docs: Fix a few typos
 
+## 0.0.9
+
+- Docs: Fix a few typos
+
 ## 0.0.8
 
 - Docs: Fix component case
