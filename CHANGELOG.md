@@ -1,5 +1,9 @@
 # svelte-lazy-loader changelog
 
+## 0.0.8
+
+- Docs: Fix component case
+
 ## 0.0.4
 
 - Image: Default `src` to `placeholder`

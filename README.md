@@ -33,7 +33,7 @@ The out-of-the-box implementation of this component features a blur transition e
 	import { Image } from 'svelte-lazy-loader
 </script>
 
-<image loading="lazy" src="path/to/image.jpg" alt="A description of the image" />
+<Image loading="lazy" src="path/to/image.jpg" alt="A description of the image" />
 ```
 
 #### API
