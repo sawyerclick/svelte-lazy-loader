@@ -38,7 +38,7 @@ The out-of-the-box implementation of this component features a blur transition e
 
 #### API
 
-| Paramter | Default | Description |
+| Parameter | Default | Description |
 | -------- | ------- | ----------- |
 | src | `placeholder` | [Defined as usual](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/src). The path to the image. Defaults to the `{placeholder}` prop. |
 | srcset | `src` | [Defined as usual](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset). If passed, defines which images should be presented. Defaults to the `src` prop, which defaults to the `placeholder` prop. |
@@ -57,4 +57,4 @@ The out-of-the-box implementation of this component features a blur transition e
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](https://github.com/sawyerclick/svelte-lazy-loader/blob/master/LICENSE)
