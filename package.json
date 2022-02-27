@@ -1,6 +1,6 @@
 {
 	"name": "svelte-lazy-loader",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"description": "A Svelte component library for effortlessly lazy-loading media",
 	"author": {
 		"name": "Sawyer Click",
