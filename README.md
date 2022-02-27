@@ -22,7 +22,7 @@ npm i svelte-lazy-loader
 
 ### Image
 
-An expansion of the HTMLImageElement that, if a browser cannot natively lazy-load, uses a shared IntersectionObserver to performantly lazy load images. This components takes several native attributes and passes them through to the underlying HTMLImageElement. A few component-specific props are available to facilitate lazy-loading.
+An expansion of the HTMLImageElement that, if a browser cannot natively lazy-load, uses a shared IntersectionObserver instance to performantly lazy load images. This components takes several native attributes and passes them through to the underlying HTMLImageElement. A few component-specific props are available to facilitate lazy-loading.
 
 The out-of-the-box implementation of this component features a blur transition effect. The CSS can be altered using [Svelte's style props](https://svelte.dev/docs#template-syntax-component-directives---style-props).
 

@@ -32,7 +32,7 @@ npm install svelte-lazy-loader
 
 ### Image
 
-An expansion of the HTMLImageElement that, if a browser cannot natively lazy-load, uses a shared IntersectionObserver to performantly lazy load images. This components takes several native attributes and passes them through to the underlying HTMLImageElement. A few component-specific props are available to facilitate lazy-loading.
+An expansion of the HTMLImageElement that, if a browser cannot natively lazy-load, uses a shared IntersectionObserver instance to performantly lazy load images. This components takes several native attributes and passes them through to the underlying HTMLImageElement. A few component-specific props are available to facilitate lazy-loading.
 
 The out-of-the-box implementation of this component features a blur transition effect. The CSS can be altered using [Svelte's style props](https://svelte.dev/docs#template-syntax-component-directives---style-props).
 
@@ -43,10 +43,10 @@ The out-of-the-box implementation of this component features a blur transition e
 	import { Image } from 'svelte-lazy-loader';
 </script>
 
-<Image src="images/san-felipe-del-morro-castle.jpg" alt="A few tourist walk up the lawn to the side of the old stone San Felipe del Morro Castle in San Juan, Puerto Rico" />
+<Image src="images/san-felipe-del-morro-castle.jpg" alt="A few tourists walk up the lawn to the side of the old stone San Felipe del Morro Castle in San Juan, Puerto Rico" />
 ```
 
-<Image src="images/san-felipe-del-morro-castle.jpg" alt="A few tourist walk up the lawn to the side of the old stone San Felipe del Morro Castle in San Juan, Puerto Rico" />
+<Image src="images/san-felipe-del-morro-castle.jpg" alt="A few tourists walk up the lawn to the side of the old stone San Felipe del Morro Castle in San Juan, Puerto Rico" />
 
 #### API
 
