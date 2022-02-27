@@ -4,6 +4,12 @@
 
 # svelte-lazy-loader
 
+## Installation
+
+```bash
+npm install svelte-lazy-loader
+```
+
 ## Image
 
 ```svelte
