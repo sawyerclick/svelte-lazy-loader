@@ -1,3 +1,7 @@
+---
+title: "svelte-lazy-loader"
+---
+
 <script>
 	import { Image } from 'svelte-lazy-loader';
 </script>

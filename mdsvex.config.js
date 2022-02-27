@@ -46,9 +46,7 @@ function processUrl(url, node) {
 
 const config = {
 	extensions: ['.svelte.md'],
-	highlight: {
-
-	},
+	layout: "./src/routes/__layout.svelte",
 	smartypants: true,
 	rehypePlugins: [
 		figure, // convert images into <figure> elements
