@@ -1,6 +1,6 @@
 # svelte-lazy-loader changelog
 
-## 0.0.9
+## 0.0.10
 
 - Docs: Fix a few typos
 
