@@ -1,6 +1,27 @@
 {
 	"name": "svelte-lazy-loader",
 	"version": "0.0.5",
+	"description": "A Svelte component library for effortlessly lazy-loading media",
+	"author": {
+		"name": "Sawyer Click",
+		"email": "sawyerclick@gmail.com",
+		"url": "https://sawyer.codes/"
+	},
+	"license": "MIT",
+	"homepage": "svelte-lazy-loader.netlify.app",
+	"keywords": [
+		"svelte",
+		"sveltekit",
+		"lazyload",
+		"image"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sawyerclick/svelte-lazy-loader.git"
+	},
+	"bugs": {
+		"url": "https://github.com/sawyerclick/svelte-lazy-loader/issues"
+	},
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
