@@ -45,6 +45,7 @@ main {
 
 * {
 	font-family: var(--mono);
+	font-display: swap;
 }
 
 h1,
