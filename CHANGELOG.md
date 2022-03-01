@@ -1,5 +1,11 @@
 # svelte-lazy-loader changelog
 
+## 0.0.11
+
+- Picture: Add picture component
+- Image: Generalize internal load logic, forward load event, adjust rootMargin to '200px 200px', consolidate load CSS transition, fix some prop types typos
+- Docs: Fix typos, update props, add Picture component with example
+
 ## 0.0.10
 
 - Docs: Fix a few typos
