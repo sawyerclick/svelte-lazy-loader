@@ -100,7 +100,7 @@
 
 <style>
 	img {
-		transition: var(--transition, filter cubic-bezier(0.4, 0, 0.2, 1) 150ms);
+		transition: var(--transition, filter cubic-bezier(0.4, 0, 0.2, 1) 300ms);
 	}
 	img[data-loaded='false'] {
 		-webkit-filter: var(--filter, blur(10px));
