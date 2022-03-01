@@ -1,6 +1,13 @@
 <script context="module">
 	let loadingExists;
 	let observer;
+
+	const loadAttributes = (el) => {
+		el.src = el.dataset.src;
+		el.srcset = el.dataset.srcset;
+		el.dataset.loaded = true;
+	};
+
 	if (typeof window !== 'undefined') {
 		// check if lazy loading is native
 		loadingExists = 'loading' in HTMLImageElement.prototype;
@@ -10,9 +17,8 @@
 			observer = new IntersectionObserver(
 				(entries, observer) => {
 					entries.forEach(({ isIntersecting, target }) => {
-						if (isIntersecting && target.src !== target.dataset.src) {
-							target.src = target.dataset.src;
-							target.srcset = target.dataset.srcset;
+						if (isIntersecting) {
+							loadAttributes(target);
 							observer.unobserve(target);
 						}
 					});
@@ -35,53 +41,47 @@
 	/** @type {String} [alt=""] - alternative text for an image, displays if image is unaccessible for user */
 	export let alt = '';
 
-	/** @type {String} [placeholder='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8+fOvJAAI7AMKHxaZiQAAAABJRU5ErkJggg=='] - the placeholder until the image loads, if it is lazyloaded */
+	/** @type {String} [placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8+fOvJAAI7AMKHxaZiQAAAABJRU5ErkJggg=="] - the placeholder until the image loads, if it is lazyloaded */
 	export let placeholder =
 		'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8+fOvJAAI7AMKHxaZiQAAAABJRU5ErkJggg==';
 
 	/** @type {String} [src="path/to/img.jpg"] - path to the image */
 	export let src = placeholder;
 
-	/** @type {Boolean|String} [srcset=path/to/image.jpg 600w] - An optional string following the HTMLImageElement.srcset format that is passed to the img srcset attribute */
+	/** @type {Boolean|String} [srcset="path/to/image.jpg 600w"] - An optional string following the HTMLImageElement.srcset format that is passed to the img srcset attribute */
 	export let srcset = src;
 
-	/** @type {Boolean|String} [sizes=(max-width: 600px) 600px, 800px] - Medica conditions that determine what image size would be best presented */
+	/** @type {Boolean|String} [sizes="(max-width: 600px) 600px, 800px"] - Medica conditions that determine what image size would be best presented */
 	export let sizes = '';
 
-	/** @type {Boolean} [draggable=true] - whether the element can be dragged via native browser behavior or HTML Drag and Drop API */
+	/** @type {Boolean} [draggable="true"] - whether the element can be dragged via native browser behavior or HTML Drag and Drop API */
 	export let draggable = true;
 
-	/** @type {('sync'|'async'|'auto')} [decoding=async] - whether or not the browser is allowed to try to parallelize loading your image */
+	/** @type {('sync'|'async'|'auto')} [decoding="async"] - whether or not the browser is allowed to try to parallelize loading your image */
 	export let decoding = 'async';
 
-	/** @type {String} [classes="w-4 border border-red"] - custom CSS classes to apply to the image */
+	/** @type {String} [classes=""] - custom CSS classes to apply to the image */
 	export let classes = '';
 
-	/** @type {String} [width="100px"] - the width of the image in digital units of rem, px or percent */
+	/** @type {String} [width="100%"] - the width of the image in digital units of rem, px or percent */
 	export let width = '100%';
 
-	/** @type {String} [height="100px"] - the height of the image in digital units of rem, px or percent */
+	/** @type {String} [height="100%"] - the height of the image in digital units of rem, px or percent */
 	export let height = '100%';
 
-	let imgEl; // img node
-	let isLoaded = false; // track if image is loaded
+	/** @type {Element} [bind:this={el}] - the image element, which can be binded */
+	export let el = undefined;
 
 	// check for native lazy Load
 	// if it exists, use it and run no code
 	onMount(() => {
-		if (loadingExists) {
-			imgEl.src = imgEl.dataset.src;
-			imgEl.srcset = imgEl.dataset.srcset;
-			isLoaded = true;
-		} else if (observer && loading === 'lazy') {
-			observer.observe(imgEl);
-		}
+		if (loadingExists) loadAttributes(el);
+		else if (observer && loading === 'lazy') observer.observe(el);
 	});
 </script>
 
 <img
-	class={classes}
-	class:inactive={!isLoaded}
+	class="{classes} svelte-lazy-loader"
 	src={loading === 'lazy' ? placeholder : src}
 	srcset={loading === 'lazy' ? placeholder : srcset}
 	{sizes}
@@ -93,17 +93,17 @@
 	{draggable}
 	data-src={src}
 	data-srcset={srcset || src}
-	bind:this={imgEl}
-	on:load={() => (isLoaded = true)}
+	data-loaded="false"
+	bind:this={el}
+	on:load
 />
 
 <style>
 	img {
-		transition-property: var(--transition-property, filter);
-		transition-timing-function: var(--transition-timing-function, cubic-bezier(0.4, 0, 0.2, 1));
-		transition-duration: var(--transition-duration, 150ms);
+		transition: var(--transition, filter cubic-bezier(0.4, 0, 0.2, 1) 150ms);
 	}
-	img.inactive {
+	img[data-loaded='false'] {
+		-webkit-filter: var(--filter, blur(10px));
 		filter: var(--filter, blur(10px));
 	}
 </style>
