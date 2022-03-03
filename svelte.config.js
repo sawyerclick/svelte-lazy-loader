@@ -10,6 +10,9 @@ const config = {
 	preprocess: [mdsvex(mdsvexConfig)],
 	kit: {
 		adapter: adapter(),
+		package: {
+			files: (id) => !id.startsWith('site/')
+		},
 		vite: {
 			plugins: [imagetools()],
 			resolve: {

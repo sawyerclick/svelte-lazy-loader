@@ -1,5 +1,9 @@
 # svelte-lazy-loader changelog
 
+## 0.0.12
+
+- Internal: Remove example image from package
+
 ## 0.0.11
 
 - Picture: Add picture component
